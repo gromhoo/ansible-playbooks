@@ -1,0 +1,12 @@
+---
+- name: 收集主机信息
+  hosts: windows
+  tasks:
+    - name: run the setup facts
+      ansible.windows.setup:
+    - name: print
+      debug:
+        #显示所有收集到的信息
+        #var: ansible_facts
+        #筛选需要的信息
+        msg: "目标主机的操作系统是：{{ ansible_facts['os_name'] }}"
